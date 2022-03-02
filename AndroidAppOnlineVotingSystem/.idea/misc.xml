@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-h720dp/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-land/activity_main.xml" value="0.21516754850088182" />
-        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.190625" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-sw600dp-land/activity_main.xml" value="0.6" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.2" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-sw720dp/activity_main.xml" value="0.190625" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-w600dp-land/activity_main.xml" value="0.264" />
-        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-w720dp/layout_720dp.xml" value="0.21516754850088182" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_main.xml" value="0.264" />
       </map>
     </option>
   </component>
