@@ -10,9 +10,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_loggin)
 
-       usingTablets = resources.getBoolean(R.bool.using_dual_pane);
+       usingTablets = resources.getBoolean(R.bool.using_dual_pane)
 
         Toast.makeText(this, "Wide Screen? $usingTablets", Toast.LENGTH_LONG).show()
     }
