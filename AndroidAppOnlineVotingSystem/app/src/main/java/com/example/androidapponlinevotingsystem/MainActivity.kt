@@ -17,5 +17,6 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Wide Screen? $usingTablets", Toast.LENGTH_LONG).show()
     }
 
+
 }
 

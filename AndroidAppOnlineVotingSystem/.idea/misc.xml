@@ -5,9 +5,16 @@
       <map>
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable-v24/ic_launcher_background2.xml" value="0.1655" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2535" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/active_dot.xml" value="0.1655" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/background1.xml" value="0.1655" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/bck.xml" value="0.1655" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.1655" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2535" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/nonactive_dot.xml" value="0.1655" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/sageata.xml" value="0.1655" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/tab_indicator_default.xml" value="0.1655" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/tab_indicator_selected.xml" value="0.1655" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/tab_selector.xml" value="0.1655" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/test.xml" value="0.1655" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/drawable/vie_bg.xml" value="0.124" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout-h720dp/activity_main.xml" value="0.25416666666666665" />
@@ -22,14 +29,17 @@
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/activity_test.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_details.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_loggin.xml" value="0.264" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_login_signin_tabs.xml" value="0.264" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_main.xml" value="0.264" />
-        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_page1.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_page1.xml" value="0.264" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_page2.xml" value="0.264" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_page3.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/fragment_start_aplication.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/login_tab_fragment.xml" value="0.264" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/page2_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/page_1_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/page_3_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/sageata.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/OnlineVotingSystem/AndroidAppOnlineVotingSystem/app/src/main/res/layout/signup_tab_fragment.xml" value="0.25416666666666665" />
       </map>
     </option>

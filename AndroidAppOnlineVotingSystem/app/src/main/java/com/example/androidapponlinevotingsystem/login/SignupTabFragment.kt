@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.example.androidapponlinevotingsystem.R
+import com.google.android.material.tabs.TabLayout
 
 class SignupTabFragment : Fragment() {
 
@@ -15,6 +17,7 @@ class SignupTabFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.signup_tab_fragment, container, false)
+
     }
 
 }
