@@ -1,4 +1,4 @@
-package com.example.androidapponlinevotingsystem.login
+package com.example.androidapponlinevotingsystem.preview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,9 +9,10 @@ import android.widget.Button
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.androidapponlinevotingsystem.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.androidapponlinevotingsystem.login.login_signinTabs
 
-class page1(fm: FragmentManager) : Fragment() {
+
+class page2(fm: FragmentManager) : Fragment() {
 
     private var mfm: FragmentManager
     private lateinit var mSkipButton: Button
@@ -25,13 +26,13 @@ class page1(fm: FragmentManager) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-       var view:View = inflater.inflate(R.layout.fragment_page1, container, false)
+        var view:View = inflater.inflate(R.layout.fragment_page2, container, false)
 
-        mSkipButton = view.findViewById(R.id.skipbutton1)
+        mSkipButton = view.findViewById(R.id.skipbutton2)
         mSkipButton.setOnClickListener{
 
             val fragmentTransaction: FragmentTransaction = mfm.beginTransaction()
-            fragmentTransaction.replace(R.id.frameLayout,login_signinTabs(mfm))
+            fragmentTransaction.replace(R.id.frameLayout, login_signinTabs(mfm))
             fragmentTransaction.commit()
         }
 

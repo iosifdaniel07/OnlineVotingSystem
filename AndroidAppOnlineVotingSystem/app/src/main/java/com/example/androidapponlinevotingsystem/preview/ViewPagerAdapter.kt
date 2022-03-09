@@ -1,9 +1,12 @@
-package com.example.androidapponlinevotingsystem.login
+package com.example.androidapponlinevotingsystem.preview
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.androidapponlinevotingsystem.preview.page1
+import com.example.androidapponlinevotingsystem.preview.page2
+import com.example.androidapponlinevotingsystem.preview.page3
 
 class ViewPagerAdapter(fragmentActivity:FragmentActivity,fm:FragmentManager) : FragmentStateAdapter(fragmentActivity){
 
