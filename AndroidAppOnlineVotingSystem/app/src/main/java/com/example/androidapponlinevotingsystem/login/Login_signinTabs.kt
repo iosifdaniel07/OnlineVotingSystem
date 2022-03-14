@@ -37,8 +37,8 @@ class login_signinTabs(fm:FragmentManager) : Fragment() {
     private fun setUpTabLoginSignUp(view:View){
 
         var madapter : LoginSignupAdapter = LoginSignupAdapter(fm)
-        madapter.addFragment(LoginTabFragment(),"Login")
-        madapter.addFragment(SignupTabFragment(),"SignUp")
+        madapter.addFragment(LoginFragment(),"Login")
+        madapter.addFragment(SignupFragment(),"SignUp")
         pageViewLogin = view.findViewById(R.id.viewPagerFragmentSignupLogin)
         pageViewLogin.adapter = madapter
         tabLoginSignUp = view.findViewById(R.id.tabLayout )
