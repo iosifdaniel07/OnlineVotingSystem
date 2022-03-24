@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Menu"
+        android:icon="@drawable/icon_menu"
+        android:id="@+id/menuFragment"
+        app:showAsAction="ifRoom"/>
+
+
+    <item
+        android:title="President"
+        android:icon="@drawable/ic_baseline_looks_one_24"
+        android:id="@+id/presidentFragment"
+        app:showAsAction="ifRoom"/>
+
+
+    <item
+        android:title="Parliament"
+        android:icon="@drawable/ic_baseline_looks_two_24"
+        android:id="@+id/parliamentFragment"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="EU Parliament"
+        android:icon="@drawable/ic_baseline_looks_3_24"
+        android:id="@+id/euparliamentFragment"
+        app:showAsAction="ifRoom"/>
+
+</menu>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/presidentFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.androidapponlinevotingsystem.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/presidentFragment"
+        android:name="com.example.androidapponlinevotingsystem.main.PresidentFragment"
+        android:label="fragment_president"
+        tools:layout="@layout/fragment_president" />
+    <fragment
+        android:id="@+id/parliamentFragment"
+        android:name="com.example.androidapponlinevotingsystem.ParliamentFragment"
+        android:label="fragment_parliament"
+        tools:layout="@layout/fragment_parliament" />
+    <fragment
+        android:id="@+id/euparliamentFragment"
+        android:name="com.example.androidapponlinevotingsystem.EUParliamentFragment"
+        android:label="fragment_e_u_parliament"
+        tools:layout="@layout/fragment_e_u_parliament" />
+</navigation>

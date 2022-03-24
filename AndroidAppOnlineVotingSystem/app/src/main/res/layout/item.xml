@@ -3,15 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
 
 
   <androidx.constraintlayout.widget.ConstraintLayout
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imagePerson"
+        android:id="@+id/imageView8"
+        android:layout_width="450dp"
+        android:layout_height="500dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/itemimagePerson"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <ImageView
+        android:id="@+id/itemimagePerson"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="2dp"
@@ -21,25 +33,25 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textViewNume"
-        android:layout_width="200dp"
+        android:id="@+id/itemtextViewNume"
+        android:layout_width="190dp"
         android:layout_height="25dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="4dp"
         android:lines="1"
         android:maxLines="1"
-          android:text="Nume-Prenume"
-        android:textStyle="bold"
+        android:text="Nume-Prenume"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagePerson" />
+        app:layout_constraintTop_toBottomOf="@+id/itemimagePerson" />
 
     <TextView
-        android:id="@+id/textViewDescriere"
+        android:id="@+id/itemtextViewDescriere"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginStart="6dp"
@@ -51,20 +63,8 @@
         android:textStyle="normal"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imagePerson"
+        app:layout_constraintStart_toEndOf="@+id/itemimagePerson"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="66dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewNume"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescriere" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
