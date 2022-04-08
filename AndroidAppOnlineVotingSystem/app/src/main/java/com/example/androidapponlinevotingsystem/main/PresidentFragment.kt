@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.androidapponlinevotingsystem.R
 import com.example.androidapponlinevotingsystem.data.Candidates
 import com.example.androidapponlinevotingsystem.databinding.FragmentPresidentBinding
@@ -19,6 +20,8 @@ class PresidentFragment() : Fragment() {
     private val binding get() = _binding!!
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var candidateDataList: ArrayList<Candidates>
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var itemAdapter: ItemAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +43,16 @@ class PresidentFragment() : Fragment() {
         candidateDataList.add(c)
         candidateDataList.add(d)
 
-        mRecyclerView.adapter = ItemAdapter(candidateDataList)
+        itemAdapter = ItemAdapter(candidateDataList)
+        mRecyclerView.adapter = itemAdapter
+
+        swipeRefreshLayout = binding.root.findViewById(R.id.swipeRefresh)
+        swipeRefreshLayout.setOnRefreshListener {
+            var a:Candidates =   Candidates("fffff","hhhhh","jjjjjj",R.drawable.logo)
+            candidateDataList.add(a)
+            itemAdapter.notifyDataSetChanged()
+            swipeRefreshLayout.isRefreshing = false
+        }
 
         return binding.root
     }

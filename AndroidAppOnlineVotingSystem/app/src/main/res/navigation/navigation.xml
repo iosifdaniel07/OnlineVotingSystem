@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.androidapponlinevotingsystem.MenuFragment"
+        android:name="com.example.androidapponlinevotingsystem.main.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
     <fragment
@@ -17,12 +17,12 @@
         tools:layout="@layout/fragment_president" />
     <fragment
         android:id="@+id/parliamentFragment"
-        android:name="com.example.androidapponlinevotingsystem.ParliamentFragment"
+        android:name="com.example.androidapponlinevotingsystem.main.ParliamentFragment"
         android:label="fragment_parliament"
         tools:layout="@layout/fragment_parliament" />
     <fragment
         android:id="@+id/euparliamentFragment"
-        android:name="com.example.androidapponlinevotingsystem.EUParliamentFragment"
+        android:name="com.example.androidapponlinevotingsystem.main.EUParliamentFragment"
         android:label="fragment_e_u_parliament"
         tools:layout="@layout/fragment_e_u_parliament" />
 </navigation>
