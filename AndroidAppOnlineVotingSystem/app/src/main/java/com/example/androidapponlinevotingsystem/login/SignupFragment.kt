@@ -2,26 +2,29 @@ package com.example.androidapponlinevotingsystem.login
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.graphics.blue
-import androidx.core.graphics.green
+import androidx.annotation.RequiresApi
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import com.example.androidapponlinevotingsystem.R
 import com.example.androidapponlinevotingsystem.data.RetrofitService
+import com.example.androidapponlinevotingsystem.data.RetrofitServiceScalar
 import com.example.androidapponlinevotingsystem.data.User
 import com.example.androidapponlinevotingsystem.data.UserApi
-import com.example.androidapponlinevotingsystem.databinding.FragmentLoginBinding
 import com.example.androidapponlinevotingsystem.databinding.FragmentSignupBinding
+import com.example.androidapponlinevotingsystem.serverProblemActivity.PublicKey_SessionKey
+import org.apache.commons.codec.digest.DigestUtils
 import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.Console
+import java.util.*
+
 
 class SignupFragment : Fragment() {
 
@@ -38,6 +41,7 @@ class SignupFragment : Fragment() {
     private lateinit var newUser: User
     private lateinit var btn: Button
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,8 +57,8 @@ class SignupFragment : Fragment() {
                 checkfName = false
             }else if(text!!.length < 26 && text!!.length > 3){
                 checkfName = true
-                newUser.fname = text!!.toString()
                 binding.textInputLayoutFirstName.helperText = "Good"
+                newUser.fname = text!!.toString()
                 binding.textInputLayoutFirstName.setHelperTextColor(ColorStateList.valueOf(Color.parseColor("#00FF00")))
             }else{
                 checkfName = false
@@ -172,15 +176,33 @@ class SignupFragment : Fragment() {
 
             }else if( text!!.length > 0){
 
-                if(true){     //Verificare in baza de date
-                    checkUsername = true
-                    newUser.username = text!!.toString()
-                    binding.textInputLayoutUsername.error = null
-                    binding.textInputLayoutUsername.helperText = "Good"
-                    binding.textInputLayoutUsername.setHelperTextColor(ColorStateList.valueOf(Color.parseColor("#00FF00")))
-                }else{
-                    binding.textInputLayoutUsername.error = "Username exists"
-                    checkUsername = false
+
+                if(text!!.length > 1) {
+
+                    val retrofitService = RetrofitServiceScalar()
+                    val userApi = retrofitService.getRetrofit().create(UserApi::class.java)
+                    userApi.checkUser(text!!.toString()).enqueue(object : Callback<Boolean> {
+                        override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                        //    Toast.makeText(activity, "responde code: ${response.code()} + value: ${response.body()}", Toast.LENGTH_SHORT).show()
+
+                            if(response.body() == false){     //Verificare in baza de date
+                                checkUsername = true
+                                newUser.username = text!!.toString()
+                                binding.textInputLayoutUsername.error = null
+                                binding.textInputLayoutUsername.helperText = "Good"
+                                binding.textInputLayoutUsername.setHelperTextColor(ColorStateList.valueOf(Color.parseColor("#00FF00")))
+                            }else{
+                                binding.textInputLayoutUsername.error = "Username exists"
+                                checkUsername = false
+                            }
+
+                        }
+
+                        override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                         //   Toast.makeText(activity, "fail connect", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+
                 }
 
             } else {
@@ -258,32 +280,39 @@ class SignupFragment : Fragment() {
         btn = binding.root.findViewById(R.id.signupBtn)
         btn.setOnClickListener {
 
-          //  if(checkUsername && checkfName && checklName && checkCnp && checkEmail && checkPhone && checkConfirmPassword && checkPassword){
+           if(checkUsername && checkfName && checklName && checkCnp && checkEmail && checkPhone && checkConfirmPassword && checkPassword){
 
                 val retrofitService =  RetrofitService()
                 val userApi = retrofitService.getRetrofit() .create(UserApi::class.java)
 
                 val user = User()
 
-                user.phone="02311232133"
-                user.cnp="555555"
-                user.email="dsaadsds@ddd.dsd"
-                user.password="sssss"
-                user.fname="sssss"
-                user.lname="ewqqweqwe"
-                user.username="euuuuu0515"
+                  //hash password
+                 val sha256hex: String = DigestUtils.sha256Hex(user.password)
+
+                  PublicKey_SessionKey.generateSessionKey()
+                  user.phone= PublicKey_SessionKey.sessionEncryp(newUser.phone)
+                  user.cnp=PublicKey_SessionKey.sessionEncryp(newUser.cnp)
+                  user.email=PublicKey_SessionKey.sessionEncryp(newUser.email)
+                  user.password=PublicKey_SessionKey.sessionEncryp(sha256hex)
+                  Log.i("tag",sha256hex)
+                  user.fname=PublicKey_SessionKey.sessionEncryp(newUser.fname)
+                  user.lname=PublicKey_SessionKey.sessionEncryp(newUser.lname)
+                  user.username=PublicKey_SessionKey.sessionEncryp(newUser.username)
+                  user.sessionKey= PublicKey_SessionKey.publicEncryptSessionKey()
+
 
                 userApi.save(user).enqueue(object : Callback<User>{
                     override fun onResponse(call: Call<User>, response: Response<User>) {
-                        Toast.makeText(activity,"succes",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity,"responde code: ${response.code()}",Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onFailure(call: Call<User>, t: Throwable) {
-                        Toast.makeText(activity,"fail",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity,"fail connect",Toast.LENGTH_SHORT).show()
                     }
                 })
 
-           // }
+            }
 
         }
 

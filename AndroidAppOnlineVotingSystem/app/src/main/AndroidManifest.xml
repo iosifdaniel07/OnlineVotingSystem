@@ -11,10 +11,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AndroidAppOnlineVotingSystem">
-
-
+        android:theme="@style/Theme.AndroidAppOnlineVotingSystem"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".serverProblemActivity.ServerIsDownActivity"
+            android:exported="false" />
+        <activity
+            android:name=".server.ServerIsDownActivity"
+            android:exported="false" />
         <activity
             android:name=".main.MainActivity"
             android:exported="true">
@@ -24,7 +28,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".login.LogginActivity"
             android:exported="true">
@@ -34,7 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

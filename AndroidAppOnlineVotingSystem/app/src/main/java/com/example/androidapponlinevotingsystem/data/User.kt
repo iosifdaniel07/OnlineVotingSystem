@@ -57,5 +57,12 @@ class User() {
         set(value) {
             field = value
         }
-    
+
+    var sessionKey: String=""
+        get() {
+            return field
+        }
+        set(value) {
+            field = value
+        }
 }
