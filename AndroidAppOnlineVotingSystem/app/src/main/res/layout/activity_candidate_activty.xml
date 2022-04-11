@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.CandidateActivty">
+
+
+    <ImageView
+        android:id="@+id/imageCandidate"
+        android:layout_width="328dp"
+        android:layout_height="272dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="35dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="374dp"
+        android:layout_height="194dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textMultiLine"
+        android:maxLines="8"
+        android:minLines="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        android:text="Description"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCandidate">
+
+        <RadioButton
+            android:id="@+id/presedinte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="President" />
+
+        <RadioButton
+            android:id="@+id/parlamentar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parliamentary" />
+
+        <RadioButton
+            android:id="@+id/euroParlamentar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Europarliamentary" />
+    </RadioGroup>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnUploadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="42dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/imageCandidate"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <Button
+        android:id="@+id/buttonCandidate"
+        android:layout_width="127dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="66dp"
+        android:text="Candidate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/btnUploadImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

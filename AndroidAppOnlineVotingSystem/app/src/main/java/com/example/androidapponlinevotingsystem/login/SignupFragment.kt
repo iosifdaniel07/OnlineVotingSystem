@@ -1,5 +1,6 @@
 package com.example.androidapponlinevotingsystem.login
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
@@ -15,11 +16,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.androidapponlinevotingsystem.R
-import com.example.androidapponlinevotingsystem.data.RetrofitService
-import com.example.androidapponlinevotingsystem.data.RetrofitServiceScalar
-import com.example.androidapponlinevotingsystem.data.User
-import com.example.androidapponlinevotingsystem.data.UserApi
+import com.example.androidapponlinevotingsystem.data.*
 import com.example.androidapponlinevotingsystem.databinding.FragmentSignupBinding
+import com.example.androidapponlinevotingsystem.main.MainActivity
 import com.example.androidapponlinevotingsystem.serverProblemActivity.PublicKey_SessionKey
 import org.apache.commons.codec.digest.DigestUtils
 import retrofit2.*
@@ -288,23 +287,45 @@ class SignupFragment : Fragment() {
                 val user = User()
 
                   //hash password
-                 val sha256hex: String = DigestUtils.sha256Hex(user.password)
+                 val sha256hex: String = DigestUtils.sha256Hex(newUser.password)
 
                   PublicKey_SessionKey.generateSessionKey()
                   user.phone= PublicKey_SessionKey.sessionEncryp(newUser.phone)
                   user.cnp=PublicKey_SessionKey.sessionEncryp(newUser.cnp)
                   user.email=PublicKey_SessionKey.sessionEncryp(newUser.email)
                   user.password=PublicKey_SessionKey.sessionEncryp(sha256hex)
-                  Log.i("tag",sha256hex)
                   user.fname=PublicKey_SessionKey.sessionEncryp(newUser.fname)
                   user.lname=PublicKey_SessionKey.sessionEncryp(newUser.lname)
                   user.username=PublicKey_SessionKey.sessionEncryp(newUser.username)
                   user.sessionKey= PublicKey_SessionKey.publicEncryptSessionKey()
+                  user.president = 0
+                  user.parliament = 0
+                  user.europarliament = 0
 
 
                 userApi.save(user).enqueue(object : Callback<User>{
                     override fun onResponse(call: Call<User>, response: Response<User>) {
                         Toast.makeText(activity,"responde code: ${response.code()}",Toast.LENGTH_SHORT).show()
+
+
+                        val retrofitServiceScalar =  RetrofitServiceScalar()
+                        val userApiScalar = retrofitServiceScalar.getRetrofit() .create(UserApi::class.java)
+                        userApiScalar.getIdForUsername(newUser.username).enqueue(object : Callback<Long>{
+                            override fun onResponse(call: Call<Long>, response: Response<Long>) {
+                                if(response.code() == 200){
+
+                                    MyIdentity.id = response.body()!!
+
+                                    val intent = Intent(activity, MainActivity::class.java)
+                                    startActivity(intent)
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Long>, t: Throwable) {
+                                Toast.makeText(activity,"Eroare server",Toast.LENGTH_LONG)
+                            }
+                        })
+
                     }
 
                     override fun onFailure(call: Call<User>, t: Throwable) {

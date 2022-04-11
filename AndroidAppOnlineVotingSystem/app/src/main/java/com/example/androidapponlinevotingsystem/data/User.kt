@@ -65,4 +65,28 @@ class User() {
         set(value) {
             field = value
         }
+
+    var president: Int = 0
+    get() {
+        return field
+    }
+    set(value) {
+        field = value
+    }
+
+    var parliament: Int = 0
+        get() {
+            return field
+        }
+        set(value) {
+            field = value
+        }
+    var europarliament: Int = 0
+        get() {
+            return field
+        }
+        set(value) {
+            field = value
+        }
+
 }
