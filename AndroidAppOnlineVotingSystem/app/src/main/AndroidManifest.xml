@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AndroidAppOnlineVotingSystem"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".main.VoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".main.CandidateActivty"
             android:exported="false" />
         <activity

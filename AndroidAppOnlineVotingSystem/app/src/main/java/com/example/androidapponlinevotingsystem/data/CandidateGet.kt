@@ -1,6 +1,6 @@
 package com.example.androidapponlinevotingsystem.data
 
-class Candidate {
+class CandidateGet {
 
     var name: String=""
         get() {
@@ -34,7 +34,7 @@ class Candidate {
             field = value
         }
 
-      var image:ByteArray = ByteArray(0)
+    var image:String = ""
         get() {
             return field
         }

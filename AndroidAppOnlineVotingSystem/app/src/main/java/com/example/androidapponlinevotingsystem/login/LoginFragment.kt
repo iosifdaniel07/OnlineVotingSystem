@@ -82,20 +82,20 @@ class LoginFragment : Fragment() {
                                                @RequiresApi(Build.VERSION_CODES.O)
                                                override fun onResponse(call: Call<Long>, response: Response<Long>) {
 
-                                                   /*
-                                                  PublicKey_SessionKey.generateSessionKey()
+                                                   MyIdentity.id = response.body()!!
+
+
+                                                   PublicKey_SessionKey.generateSessionKey()
                                                    userApiScalar.sendSessionKey(username.text.toString(),PublicKey_SessionKey.publicEncryptSessionKey()).enqueue(object : Callback<Boolean>{
 
                                                        override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
 
-                                                           Log.e("response",response.code().toString())
+                                                          // Log.e("response",response.code().toString())
                                                            if(response.code() == 200){
 
-                                                               if(response.body() == true){
-                                                                   val intent = Intent(activity,MainActivity::class.java)
-                                                                   startActivity(intent)
-                                                                   Log.e("session key",  Base64.getEncoder().encodeToString(PublicKey_SessionKey.sessionKey!!.encoded))
-                                                               }
+                                                                  // Log.e("session key",  Base64.getEncoder().encodeToString(PublicKey_SessionKey.sessionKey!!.encoded))
+                                                                val intent = Intent(activity,MainActivity::class.java)
+                                                                startActivity(intent)
                                                            }
 
 
@@ -105,10 +105,8 @@ class LoginFragment : Fragment() {
                                                           Log.e("session key", "failed send session key")
                                                        }
                                                    })
-                                                 */
-                                                   MyIdentity.id = response.body()!!
-                                                   val intent = Intent(activity,MainActivity::class.java)
-                                                   startActivity(intent)
+
+
                                                }
 
                                                override fun onFailure(call: Call<Long>, t: Throwable) {

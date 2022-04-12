@@ -6,25 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".main.EUParliamentFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshEuParlament"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="407dp"
-            android:layout_height="647dp"
-            android:layout_marginStart="141dp"
-            android:layout_marginTop="231dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginBottom="392dp"
-            android:src="@drawable/ic_launcher_background"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEuParlament"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.464"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.398" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

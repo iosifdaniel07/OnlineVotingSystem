@@ -2,15 +2,10 @@ package com.example.androidapponlinevotingsystem.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.androidapponlinevotingsystem.R
-import com.example.androidapponlinevotingsystem.data.Candidates
-import com.example.androidapponlinevotingsystem.preview.StartAplicationFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

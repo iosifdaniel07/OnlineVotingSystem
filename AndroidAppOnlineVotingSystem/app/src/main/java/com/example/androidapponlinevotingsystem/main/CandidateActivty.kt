@@ -4,15 +4,20 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidapponlinevotingsystem.R
 import com.example.androidapponlinevotingsystem.data.*
 import com.example.androidapponlinevotingsystem.serverProblemActivity.ImageConvertor
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.create
@@ -31,6 +36,7 @@ class CandidateActivty : AppCompatActivity() {
    private var checkImage: Boolean = false
    private var checkRol: Boolean = false
    private lateinit var radiobtn: RadioGroup
+   private lateinit var btnBack:  FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +47,7 @@ class CandidateActivty : AppCompatActivity() {
         radiobtn  = findViewById(R.id.radioGroup)
         createBtn = findViewById(R.id.buttonCandidate)
         description = findViewById(R.id.description)
-
+        btnBack = findViewById(R.id.backbtn)
         uploadbtn.setOnClickListener {
 
             val i = Intent()
@@ -52,11 +58,46 @@ class CandidateActivty : AppCompatActivity() {
 
         createBtn.setOnClickListener {
 
-           var candidate: Candidate = Candidate()
+            createCandidate()
 
-           if(description.text.length > 10){
-               checkDescription = true
-           }
+        }
+
+        btnBack.setOnClickListener {
+            val intent = Intent(this@CandidateActivty, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+
+
+   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == SELECT_PICTURE) {
+                val selectedImageUri = data?.data
+                if (null != selectedImageUri) {
+
+                   bitmapImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(),selectedImageUri)
+                   imagecover.setImageURI(selectedImageUri)
+                   checkImage = true
+                }
+            }
+        }
+    }
+
+
+    private fun createCandidate(){
+
+        CoroutineScope(Dispatchers.Default).launch {
+
+            var candidate: Candidate = Candidate()
+
+            if(description.text.length > 10){
+                checkDescription = true
+            }
 
             if( radiobtn.getCheckedRadioButtonId() == R.id.presedinte){
                 candidate.rol = "Presedinte"
@@ -78,6 +119,7 @@ class CandidateActivty : AppCompatActivity() {
                 val userApi = retrofitService.getRetrofit().create(UserApi::class.java)
                 userApi.getname(MyIdentity.id).enqueue(object : retrofit2.Callback<String> {
                     override fun onResponse(call: Call<String>, response: Response<String>) {
+
                         if(response.code() == 200){
                             candidate.name = response.body().toString()
 
@@ -85,14 +127,19 @@ class CandidateActivty : AppCompatActivity() {
                             val candidaApi = retrofitServicea.getRetrofit().create(UserApi::class.java)
                             candidaApi.saveCandidate(candidate).enqueue(object : retrofit2.Callback<Candidate> {
                                 override fun onResponse(call: Call<Candidate>, response: Response<Candidate>) {
-                                    val intent = Intent(this@CandidateActivty, MainActivity::class.java)
-                                    startActivity(intent)
+
+
+                                     val intent = Intent(this@CandidateActivty, MainActivity::class.java)
+                                      startActivity(intent)
                                 }
 
                                 override fun onFailure(call: Call<Candidate>, t: Throwable) {
+
                                     if(response.code() == 200) {
-                                        val intent = Intent(this@CandidateActivty, MainActivity::class.java)
-                                        startActivity(intent)
+
+
+                                          val intent = Intent(this@CandidateActivty, MainActivity::class.java)
+                                          startActivity(intent)
                                     }
                                 }
                             })
@@ -101,33 +148,12 @@ class CandidateActivty : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<String>, t: Throwable) {
-                     Log.e("creare candidat","eroare")
+                        Log.e("creare candidat","eroare")
                     }
                 })
 
-
             }
 
-        }
-
-    }
-
-
-
-   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == RESULT_OK) {
-
-            if (requestCode == SELECT_PICTURE) {
-                val selectedImageUri = data?.data
-                if (null != selectedImageUri) {
-
-                   bitmapImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(),selectedImageUri)
-                   imagecover.setImageURI(selectedImageUri)
-                   checkImage = true
-                }
-            }
         }
     }
 }

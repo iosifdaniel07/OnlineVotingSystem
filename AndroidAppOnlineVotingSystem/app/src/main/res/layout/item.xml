@@ -12,7 +12,7 @@
       android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageViewBackground"
         android:layout_width="450dp"
         android:layout_height="500dp"
         android:scaleType="fitXY"
@@ -24,9 +24,10 @@
 
     <ImageView
         android:id="@+id/itemimagePerson"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="207dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,14 +37,15 @@
         android:id="@+id/itemtextViewNume"
         android:layout_width="190dp"
         android:layout_height="25dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="216dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="4dp"
         android:lines="1"
         android:maxLines="1"
         android:text="Nume-Prenume"
         android:textSize="18dp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,17 +54,19 @@
 
     <TextView
         android:id="@+id/itemtextViewDescriere"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="170dp"
+        android:layout_height="182dp"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="6dp"
-          android:text="Descriere"
-        android:maxLines="13"
         android:lines="13"
-        android:textStyle="normal"
+        android:maxLines="13"
+        android:text="Descriere"
+        android:textColor="@color/white"
         android:textSize="14dp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toEndOf="@+id/itemimagePerson"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -3,6 +3,7 @@ package com.example.androidapponlinevotingsystem.data
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.http.*
+import java.util.ArrayList
 
 
 interface UserApi {
@@ -29,8 +30,18 @@ interface UserApi {
     fun saveCandidate(@Body candidate: Candidate):Call<Candidate>
 
     @GET("/candidate/president")
-    fun getCandidatesPresident() : Call<List<Candidate>>
+    fun getCandidatesPresident() : Call<List<CandidateGet>>
 
-    @POST("/user/sessionkey/{username}/{sessionkey}")
-    fun sendSessionKey(@Path(value="username") username: String, @Path(value="sessionkey") sessionkey: String) : Call<Boolean>
+    @GET("/candidate/parliamentary")
+    fun getCandidatesParliamentary() : Call<List<CandidateGet>>
+
+    @GET("/candidate/europarliamentary")
+    fun getCandidatesEuroParliamentary() : Call<List<CandidateGet>>
+
+    @POST("/user/{username}")
+    fun sendSessionKey(@Path(value="username") username: String, @Body sessionkey: String) : Call<Boolean>
+
+    @GET("candidate/{id}")
+    fun getCandidateForUsernameId(@Path(value="id") id: String) : Call<CandidateGet>
+
 }
