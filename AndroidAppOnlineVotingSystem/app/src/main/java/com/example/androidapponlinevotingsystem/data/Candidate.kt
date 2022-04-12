@@ -41,4 +41,12 @@ class Candidate {
         set(value) {
             field = value
         }
+
+    var scor:Int = 0
+        get() {
+            return field
+        }
+        set(value) {
+            field = value
+        }
 }

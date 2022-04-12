@@ -94,7 +94,7 @@ class LoginFragment : Fragment() {
                                                            if(response.code() == 200){
 
                                                                   // Log.e("session key",  Base64.getEncoder().encodeToString(PublicKey_SessionKey.sessionKey!!.encoded))
-                                                                val intent = Intent(activity,MainActivity::class.java)
+                                                               val intent = Intent(activity,MainActivity::class.java)
                                                                 startActivity(intent)
                                                            }
 

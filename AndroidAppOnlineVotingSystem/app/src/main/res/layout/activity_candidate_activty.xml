@@ -98,15 +98,17 @@
         android:id="@+id/buttonCandidate"
         android:layout_width="127dp"
         android:layout_height="55dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="40dp"
         android:text="Candidate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/btnUploadImage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUploadImage"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/backbtn"

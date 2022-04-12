@@ -44,4 +44,9 @@ interface UserApi {
     @GET("candidate/{id}")
     fun getCandidateForUsernameId(@Path(value="id") id: String) : Call<CandidateGet>
 
+    @GET("/user/{id}")
+    fun getMyUser(@Path(value = "id") id: Long): Call<User>
+
+    @POST("candidate/vote/{id}")
+    fun vote(@Path("id") idCandidate: String) : Call<CandidateGet>
 }

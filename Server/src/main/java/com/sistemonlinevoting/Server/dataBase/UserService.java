@@ -2,8 +2,6 @@ package com.sistemonlinevoting.Server.dataBase;
 
 import com.sistemonlinevoting.Server.EncryptionDecryption;
 import com.sistemonlinevoting.Server.ServerApplication;
-import com.sistemonlinevoting.Server.thread.MethodDelegate;
-import com.sistemonlinevoting.Server.thread.ThreadExecutorQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +10,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.util.ArrayList;
 import java.util.Base64;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 
 @Service
@@ -46,8 +40,11 @@ public class UserService {
              user.setPhone(EncryptionDecryption.decryptWithSessionKey(user.getPhone(),secretKey));
              user.setCnp(EncryptionDecryption.decryptWithSessionKey(user.getCnp(),secretKey));
              user.setSessionKey(Base64.getEncoder().encodeToString(secretKey.getEncoded()));
-             LOGGER.error(user.getPassword());
-                repository.save(user);
+             user.setPresedinte(0);
+             user.setEuroparlamentari(0);
+             user.setParlament(0);
+             repository.save(user);
+
             }
         });
 
@@ -78,12 +75,39 @@ public class UserService {
        return repository.findByusername(username);
     }
 
-  /*  public List<User> getAllUser(){
-      List<User> list = new ArrayList<>();
-        Streamable.of(repository.findAll())
-                .forEach(list::add);
-        return list;
-    }*/
 
+  @Async
+  public Long getIdForUser(String username){
+     User user =  repository.findByusername(username);
+     return user.getId();
+  }
+
+  @Async
+  public boolean setSessionKey(String username, String sessionkey){
+
+      User user =  repository.findByusername(username);
+      if(user != null){
+
+        byte[] decodedKey = EncryptionDecryption.decrypWithPrivateKey(sessionkey);
+        SecretKey secretKey = new SecretKeySpec(decodedKey, 0,decodedKey.length, "DES");
+        user.setSessionKey(Base64.getEncoder().encodeToString(secretKey.getEncoded()));
+        repository.save(user);
+        LOGGER.error("session key saved");
+        return true;
+      }
+      return false;
+  }
+
+   @Async
+    public String numeprenume(Long id){
+      User user = repository.findByid(id);
+
+      return user.getFname() + " " + user.getLname();
+   }
+
+   @Async
+    public User getUser(Long id){
+       return repository.findByid(id);
+   }
 
 }

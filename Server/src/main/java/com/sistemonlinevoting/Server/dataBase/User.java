@@ -22,8 +22,35 @@ public class User {
     private  @Column(nullable = false) String email;
     private  @Column(nullable = false) String password;
     private  @Column(nullable = false) String sessionKey;
+    private @Column(nullable = false) int presedinte;
+    private @Column(nullable = false) int parlament;
+    private @Column(nullable = false) int europarlamentari;
 
-    public User(String fname, String lname, String username, String cnp, String phone, String email, String password, String sessionKey){
+    public int getPresedinte() {
+        return presedinte;
+    }
+
+    public void setPresedinte(int presedinte) {
+        this.presedinte = presedinte;
+    }
+
+    public int getParlament() {
+        return parlament;
+    }
+
+    public void setParlament(int parlament) {
+        this.parlament = parlament;
+    }
+
+    public int getEuroparlamentari() {
+        return europarlamentari;
+    }
+
+    public void setEuroparlamentari(int europarlamentari) {
+        this.europarlamentari = europarlamentari;
+    }
+
+    public User(String fname, String lname, String username, String cnp, String phone, String email, String password, String sessionKey, int presedinte, int parlament, int europarlamentari){
         this.fname = fname;
         this.lname = lname;
         this.username = username;
@@ -32,6 +59,9 @@ public class User {
         this.email = email;
         this.password = password;
         this.sessionKey = sessionKey;
+        this.presedinte = presedinte;
+        this.parlament = parlament;
+        this.europarlamentari = europarlamentari;
     }
 
     public Long getId(){
@@ -126,4 +156,5 @@ public class User {
         return "User{" + "id=" + this.id + ", fname=" + this.fname + ", lname=" + this.lname + ", username=" + this.username +
                 ", cnp=" + this.cnp + ", email=" + this.email + ", phone=" + this.phone + "}";
     }
+
 }

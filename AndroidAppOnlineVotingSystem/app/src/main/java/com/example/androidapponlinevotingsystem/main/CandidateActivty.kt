@@ -48,6 +48,7 @@ class CandidateActivty : AppCompatActivity() {
         createBtn = findViewById(R.id.buttonCandidate)
         description = findViewById(R.id.description)
         btnBack = findViewById(R.id.backbtn)
+
         uploadbtn.setOnClickListener {
 
             val i = Intent()

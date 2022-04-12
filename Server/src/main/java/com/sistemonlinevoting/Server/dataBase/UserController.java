@@ -2,17 +2,12 @@ package com.sistemonlinevoting.Server.dataBase;
 
 
 import com.sistemonlinevoting.Server.ServerApplication;
+import com.sun.xml.bind.v2.TODO;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 
 
 @RestController
@@ -47,5 +42,28 @@ public class UserController {    //GET is used to request data from a specified 
        User user = userService.getPasswordForUser(username);
        return user.getPassword();
    }
+
+    @GetMapping("/user/id/{username}")
+    public Long getIdForUsername( @PathVariable("username") String username){
+
+        return userService.getIdForUser(username);
+    }
+
+    @GetMapping("/user/numeprenume/{id}")
+    public String getNumePrenume(@PathVariable("id")  Long id){
+       return userService.numeprenume(id);
+    }
+
+    @PostMapping("/user/{username}")
+    public boolean setKeySession( @PathVariable String username, @RequestBody String sessionKey){
+       LOGGER.error("request ");
+       return userService.setSessionKey(username,sessionKey);
+    }
+
+    @GetMapping("/user/{id}")
+    public User getUser( @PathVariable Long id){
+       return userService.getUser(id);
+    }
+
 
 }
