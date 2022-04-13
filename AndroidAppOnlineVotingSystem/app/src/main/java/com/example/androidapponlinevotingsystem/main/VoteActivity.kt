@@ -103,7 +103,25 @@ class VoteActivity : AppCompatActivity() {
 
                             if(response.body()!!.parliament == 0){
 
+                                val retrofitServiceScalar =  RetrofitService()
+                                val userApi = retrofitServiceScalar.getRetrofit() .create(UserApi::class.java)
+                                userApi.vote(candidat.idUser).enqueue(object : retrofit2.Callback<CandidateGet> {
 
+
+                                    override fun onResponse(call: Call<CandidateGet>, response: Response<CandidateGet>) {
+
+                                        if(response.code() == 200){
+                                            vote.text = "Ai votat"
+                                            vote.visibility = View.VISIBLE
+                                        }else{
+                                            Log.e("error","vote" + response.code())
+                                        }
+                                    }
+
+                                    override fun onFailure(call: Call<CandidateGet>, t: Throwable) {
+                                        Log.e("error","vote")
+                                    }
+                                })
                             }else{
                                 vote.visibility = View.VISIBLE
                             }
@@ -111,7 +129,25 @@ class VoteActivity : AppCompatActivity() {
                         }else if( candidat.rol == "EuroParlamentar"){
 
                             if(response.body()!!.europarliament == 0){
+                                val retrofitServiceScalar =  RetrofitService()
+                                val userApi = retrofitServiceScalar.getRetrofit() .create(UserApi::class.java)
+                                userApi.vote(candidat.idUser).enqueue(object : retrofit2.Callback<CandidateGet> {
 
+
+                                    override fun onResponse(call: Call<CandidateGet>, response: Response<CandidateGet>) {
+
+                                        if(response.code() == 200){
+                                            vote.text = "Ai votat"
+                                            vote.visibility = View.VISIBLE
+                                        }else{
+                                            Log.e("error","vote" + response.code())
+                                        }
+                                    }
+
+                                    override fun onFailure(call: Call<CandidateGet>, t: Throwable) {
+                                        Log.e("error","vote")
+                                    }
+                                })
 
                             }else{
                                 vote.visibility = View.VISIBLE

@@ -19,3 +19,4 @@ class RetrofitService {
         return retrofit
     }
 }
+

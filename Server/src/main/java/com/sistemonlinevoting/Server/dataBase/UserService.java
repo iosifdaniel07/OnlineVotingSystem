@@ -21,6 +21,22 @@ public class UserService {
    @Autowired
    private UserRepository repository;
 
+    @Async
+    public String sendPublicKey(){
+        return ServerApplication.getPublicKey();
+    }
+
+    @Async
+    public boolean checkUser(String username){
+
+        return repository.findByUsername(username).isPresent();
+    }
+
+    @Async
+    public User getPasswordForUser(String username){
+        return repository.findByusername(username);
+    }
+
    @Async
     public User saveUser(User user) {
 
@@ -59,21 +75,6 @@ public class UserService {
         return user;
     }
 
-    @Async
-    public String sendPublicKey(){
-       return ServerApplication.getPublicKey();
-    }
-
-    @Async
-    public boolean checkUser(String username){
-
-         return repository.findByUsername(username).isPresent();
-    }
-
-    @Async
-   public User getPasswordForUser(String username){
-       return repository.findByusername(username);
-    }
 
 
   @Async

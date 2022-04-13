@@ -1,9 +1,5 @@
 package com.sistemonlinevoting.Server.dataBase;
 
-
-import com.sistemonlinevoting.Server.ServerApplication;
-import com.sun.xml.bind.v2.TODO;
-import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

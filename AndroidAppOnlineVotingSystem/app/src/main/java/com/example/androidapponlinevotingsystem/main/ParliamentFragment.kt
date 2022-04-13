@@ -80,6 +80,7 @@ class ParliamentFragment : Fragment() {
                                 var candidateGet = itemAdapter.getCandidate(position)
 
                                 val intent = Intent(activity,VoteActivity::class.java)
+                                intent.putExtra("idUser",itemAdapter.getCandidate(position).idUser)
                                 startActivity(intent)
                             }
                         })

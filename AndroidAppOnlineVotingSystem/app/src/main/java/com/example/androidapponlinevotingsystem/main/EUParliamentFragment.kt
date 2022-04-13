@@ -77,6 +77,7 @@ class EUParliamentFragment : Fragment() {
                             override fun onItemClick(position: Int) {
 
                                 val intent = Intent(activity,VoteActivity::class.java)
+                                intent.putExtra("idUser",itemAdapter.getCandidate(position).idUser)
                                 startActivity(intent)
                             }
                         })
